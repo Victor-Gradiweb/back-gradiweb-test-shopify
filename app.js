@@ -1,16 +1,18 @@
-// Importamos express
 const express = require("express");
+const dotenv = require("dotenv");
+const discountRoutes = require("./src/routes/discountRoutes");
+const errorHandler = require("./src/utils/errorHandler");
 
-// Creamos una instancia de Express
+dotenv.config();
 const app = express();
+const port = 3000;
 
-// Definimos una ruta
-app.get("/", (req, res) => {
-  res.send("¡Hola Mundo!");
-});
+// Middleware para manejar rutas
+app.use("/api", discountRoutes);
 
-// Establecemos el puerto de escucha
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+// Middleware para manejo de errores
+app.use(errorHandler);
+
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
