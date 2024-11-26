@@ -52,7 +52,7 @@ const getDiscounts = async () => {
       { query },
       {
         headers: {
-          "X-Shopify-Access-Token": "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",
+          "X-Shopify-Access-Token": shopifyConfig.apiPassword,
           "Content-Type": "application/json"
         }
       }
