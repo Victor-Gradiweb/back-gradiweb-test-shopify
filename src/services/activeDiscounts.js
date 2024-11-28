@@ -50,7 +50,7 @@ const getActiveDiscounts = async () => {
       { query },
       {
         headers: {
-          "X-Shopify-Access-Token": shopifyConfig.apiPassword,
+          "X-Shopify-Access-Token": shopifyConfig.apiKey,
           "Content-Type": "application/json"
         }
       }
